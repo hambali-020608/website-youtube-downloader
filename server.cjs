@@ -28,6 +28,21 @@ async function downloadVideo(url, path) {
   }
 
 
+  async function downloadAudio(url,path) {
+  try{
+await ytdlp(url,{
+    extractAudio: true,           // Hanya mengunduh audio
+    audioFormat: 'mp3',           // Format file MP3
+    output: path 
+})
+  } catch (error){
+    console.error("gagal mendownload mp3",error)
+    throw error
+
+  } 
+  }
+
+
 app.get('/download',async(req,res)=>{
     const url = req.query.url
     const mp4name="video.mp4"
@@ -43,6 +58,36 @@ app.get('/download',async(req,res)=>{
              }else{
                 console.log('berhasil mengirim file')
                 fs.unlink(mp4Path,(err)=>{
+                    if(err){
+                        console.error("gagal menghapus file",err)
+                    }
+                })
+             }
+            })
+        }
+    }catch{
+
+    }
+    
+
+
+})
+
+app.get('/downloadmp3',async(req,res)=>{
+    const url = req.query.url
+    const mp3name="audio.mp3"
+    const mp3Path=path.join(outputDir,mp3name)
+    try{
+        await downloadVideo(url,mp3Path)
+        if(fs.existsSync(mp4Path)){
+            console.log("siap mendownload file...", mp3Path)
+            res.download(mp3Path,mp3name,(err)=>{
+             if(err){
+                console.error("gagal mengirim file",err)
+
+             }else{
+                console.log('berhasil mengirim file')
+                fs.unlink(mp3Path,(err)=>{
                     if(err){
                         console.error("gagal menghapus file",err)
                     }

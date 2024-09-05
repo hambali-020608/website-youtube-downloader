@@ -1,31 +1,24 @@
 import { useState } from 'react'
-import cuyLogo from './assets/logo.svg'
 import './App.css'
-
+import Navbar from './component/navbar'
+import Downloadmp3 from './pages/downloadmp3'
+import DownloadMp4 from './pages/downloadmp4'
 function App() {
-    const [count, setCount] = useState(0)
-    const [url,setUrl] = useState("")
-    const [link,setLink]=useState(<p>silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
-    function handleinput(e){
-        setUrl(e.target.value)
-        
-    }
-
-   async function download(){
-        const youtube = await fetch (`http://localhost:3000/download?url=${encodeURIComponent(url)}`) 
-        const blob= await youtube.blob()
-        const urlfile=window.URL.createObjectURL(blob)
-        setLink(<a href={urlfile} download="video.mp4">Download!!!</a>)
-
-    }
-
-
+    const [tabs,setTabs]= useState("ytmp4")
     return (
         <>
-        <h1>Youtube Downloader</h1>
-        <input type="text" placeholder='masukan url youtube...' value={url} onChange={handleinput}/>
-        <button onClick={download}>download video</button>    
-       {link}
+        <Navbar>
+        <li className="nav-item">
+          <a className={`nav-link btn ${tabs === 'ytmp4' ? 'active btn-primary' : ''}`} aria-current="page"  href='#' onClick={()=>setTabs("ytmp4")}>Youtube-mp4</a>
+        </li>
+        <li className="nav-item">
+        <a className={`nav-link btn ${tabs === 'ytmp3' ? 'active btn-primary' : ''}`} aria-current="page" href='#'  onClick={()=>setTabs("ytmp3")}>Youtube-mp3</a>
+        </li>
+        </Navbar>
+        <div className='d-flex justify-content-center m-5'>
+      {tabs =='ytmp4' && <DownloadMp4/>}
+      {tabs == 'ytmp3' && <Downloadmp3/>}
+       </div>
         </>
     )
 }
