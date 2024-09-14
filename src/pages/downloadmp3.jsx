@@ -13,7 +13,7 @@ function Downloadmp3(){
 
 
    async function download(){
-        const youtube = await fetch (`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev//downloadmp3?url=${encodeURIComponent(url)}`) 
+        const youtube = await fetch (`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev/downloadmp3?url=${encodeURIComponent(url)}`) 
         const blob= await youtube.blob()
         const urlfile=window.URL.createObjectURL(blob)
         setLink(<a href={urlfile} download="video.mp3" className='btn btn-danger'>Download!!!</a>)
