@@ -79,7 +79,7 @@ app.get('/downloadmp3',async(req,res)=>{
     const mp3Path=path.join(outputDir,mp3name)
     try{
         await downloadVideo(url,mp3Path)
-        if(fs.existsSync(mp4Path)){
+        if(fs.existsSync(mp3Path)){
             console.log("siap mendownload file...", mp3Path)
             res.download(mp3Path,mp3name,(err)=>{
              if(err){

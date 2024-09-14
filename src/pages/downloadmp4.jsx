@@ -1,19 +1,37 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import HeaderFormat from "../component/Header"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+
+
 function DownloadMp4(){
     const [url,setUrl] = useState("")
+    const [orang,setOrang]= useState([])
     const [link,setLink]=useState(<p>silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
+
+    async function fetching(){
+        const result = await fetch("http://localhost:3000/database")
+        return result
+    }
+
     function handleinput(e){
         setUrl(e.target.value)
         
     }
+useEffect(()=>{
+    
+fetching().then((respon)=>{
+    return respon.json()
+}).then((data)=>{
+    setOrang(data)
+})
 
+
+},[])
 
 
    async function download(){
-        const youtube = await fetch (`http://localhost:3000/download?url=${encodeURIComponent(url)}`) 
+        const youtube = await fetch (`http://localhost:3000/download?url=${encodeURIComponent(url)}`) //fetching url dari server
         const blob= await youtube.blob()
         const urlfile=window.URL.createObjectURL(blob)
         setLink(<a href={urlfile} download="video.mp4" className='btn btn-danger'>Download!!!</a>)
@@ -29,6 +47,8 @@ function DownloadMp4(){
   <button className="btn btn-primary" type="button" id="button-addon2" onClick={download}>Search</button>
 </div>
        {link}
+
+       
        </div>
     )
 }
