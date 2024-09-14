@@ -29,9 +29,8 @@ fetching().then((respon)=>{
 
 },[])
 
-
    async function download(){
-        const youtube = await fetch (`http://localhost:3000/download?url=${encodeURIComponent(url)}`) //fetching url dari server
+        const youtube = await fetch (`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev/download?url=${encodeURIComponent(url)}`) //fetching url dari server
         const blob= await youtube.blob()
         const urlfile=window.URL.createObjectURL(blob)
         setLink(<a href={urlfile} download="video.mp4" className='btn btn-danger'>Download!!!</a>)
