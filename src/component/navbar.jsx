@@ -1,16 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 function Navbar({children}){
     return(
         <>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container">
-    <a className="navbar-brand" href="#">Profesor-Youtube</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="#" style={{fontSize:"2rem"}}>Profesor-Youtube</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="" id="navbarNavDropdown">
-      <ul className="navbar-nav">
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav ms-auto">
        {children}
       </ul>
     </div>
