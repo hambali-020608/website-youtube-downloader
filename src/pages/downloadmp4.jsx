@@ -16,7 +16,11 @@ function Downloadmp4(){
         const youtube = await fetch (`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev/download?url=${encodeURIComponent(url)}`) 
         const blob= await youtube.blob()
         const urlfile=window.URL.createObjectURL(blob)
-        setLink(<a href={urlfile} download="video.mp4" className='btn btn-danger'>Download!!!</a>)
+        const contentDisposition = youtube.headers.get('Content-Disposition');
+        const fileName = contentDisposition
+                ? contentDisposition.split('filename=')[1].replace(/"/g, '')
+                : 'download.mp4';
+        setLink(<a href={urlfile} download={fileName} className='btn btn-danger'>Download!!!</a>)
 
     }
     

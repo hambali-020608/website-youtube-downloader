@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './component/navbar'
 import Downloadmp3 from './pages/downloadmp3'
 import DownloadMp4 from './pages/downloadmp4'
+import DownloadComponent from './pages/testing'
 function App() {
     const [tabs,setTabs]= useState("ytmp4")
     return (
@@ -18,6 +19,9 @@ function App() {
         <div className='d-flex justify-content-center m-5'>
       {tabs =='ytmp4' && <DownloadMp4/>}
       {tabs == 'ytmp3' && <Downloadmp3/>}
+     
+      
+
        </div>
         </>
     )
