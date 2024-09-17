@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body,html{
+    background-image: url("./assets/space.jpg");
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: white;
+    font-family: 'Audiowide', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
