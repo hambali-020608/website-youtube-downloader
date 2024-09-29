@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HeaderFormat from "../component/Header"
 import space from '../assets/space.jpg'
@@ -28,13 +29,22 @@ function Downloadmp4(){
 
     return(
         <div>
+
+
+
+
+
+
+            
         <HeaderFormat format="Mp4"/>
+        
         <div className="input-group mb-3">
-  <input type="text" className="form-control" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
-<button className="text-dark" type="button" id="button-addon2" onClick={download} style={{ 
-    background: `radial-gradient(circle, #fff7cc, #f9f4b2, #eae4a1, #d6d283, #c1bf62)`,
+  <input type="text" className="form-control rounded-start-pill" style={{height:'4rem'}} placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
+<button className="text-white rounded-end-circle" type="button" id="button-addon2" onClick={download} style={{ 
+    backgroundColor:"#000000",
     cursor: 'pointer',
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    width:'6rem',
+    height:'4rem'
     }}>Search</button>
 </div>
        {link}
