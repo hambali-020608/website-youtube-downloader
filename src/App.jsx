@@ -18,8 +18,9 @@ function App() {
         </li>
         </Navbar>
         <div className='d-flex justify-content-center m-5'>
-      {tabs =='ytmp4' && <DownloadMp4/>}
-      {tabs == 'ytmp3' && <Downloadmp3/>}
+      {/* {tabs =='ytmp4' && <DownloadMp4/>}
+      // {tabs == 'ytmp3' && <Downloadmp3/>} */}
+      <DownloadComponent/>
      
       
 
