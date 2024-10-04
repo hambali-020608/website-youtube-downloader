@@ -15,7 +15,7 @@ function DownloadComponent() {
 
     try {
       // Request to backend server
-      const response = await fetch(`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev:5000/info?url=${encodeURIComponent(url)}`, {
+      const response = await fetch(`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev:5000/download?url=${encodeURIComponent(url)}`, {
         method: 'GET',
         credentials:'include',
         headers: {
