@@ -5,7 +5,7 @@ function DownloadComponent() {
   const [videoInfo, setVideoInfo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+const clientcookies= document.cookie
   // Function to handle form submit
   const handleDownload = async (e) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ function DownloadComponent() {
         credentials:'include',
         headers: {
           'Content-Type': 'application/json',
+          'Cookie':clientcookies
         },
       });
 
