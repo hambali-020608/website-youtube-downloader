@@ -1,27 +1,22 @@
 import { useEffect, useRef } from 'react'
+import '../App.css'
 import Typed from 'typed.js'
+import { AOS } from 'aos'
+import 'aos/dist/aos.css'
+
 
 
 function HeaderFormat(props){
-    const el = useRef(null)
-    const typed = useRef(null)
 
-    useEffect(()=>{
-        typed.current = new Typed(el.current,{
-            strings: ['Made By Hambali'],
-            typeSpeed:50,
-            backSpeed:25,
-            loop:true
-        })
-        return ()=>{
-            typed.current.destroy()
-        }
-    },[])
+   
+   
     return(
-        <div>
-        <h1 align="center" >Youtube Download {props.format}</h1>
-        <h4 ref={el} align="center"></h4>
+        <header className="text-center header">
+            <div className='text-center'>
+        <h1 className='fw-bold'  style={{fontSize:'50px',marginTop:'6rem'}}>YouTube Downloader {props.format}</h1>
+        <p className='lh-1 justify-content-center '  style={{}}>Mendownload video youtube dengan mudah, hanya copy url dari youtube, paste url nya di bawah sini dan klik “download”</p>
         </div>
+        </header>
         
     )
 }

@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+/* media query for laptop */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 body,html{
-    background-image: url("./assets/space.jpg");
-
-    height: 100%;
-    color: white;
-    font-family: 'Audiowide', sans-serif;
-    background-size: cover;
-
-    background-repeat: no-repeat;
+   font-family: "Noto Serif", serif;
 }
+
+
+@media (min-width:992px){  
+   .navbar-nav{
+    margin-left: 9rem;
+    font-size: 25px;
+   }
+
+}
+

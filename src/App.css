@@ -1,10 +1,63 @@
-.navbar-toggler-icon{
-    background-color: #efff;
-}
-.navbar-toggler {
-    border: 2px solid white; /* Border putih */
+/* media query for laptop */
+
+
+.hero-section{
+    height: 8.5rem;
+    position: relative;
+    
 }
 
-.navbar{
-    backdrop-filter: blur(10px);
+
+.section-div{
+    position:absolute;
+    left:15px;
+    bottom:35%;
 }
+
+.section-div button{
+    background-color: #98FF98;
+    cursor: 'pointer';
+    width:5rem;
+    height:2.5rem;
+    margin-left: 2rem;
+}
+.input{
+    height:2.5rem;
+     width:25rem;
+}
+
+.header{
+    height: 52vh;
+}
+
+.header p{
+    max-width:450px;
+    word-wrap:'break-word';
+    margin: 1rem auto 0 auto;
+    font-weight:'normal';
+    font-size:20px;
+   
+}
+@media only screen and (max-width:768px){
+    .section-div{
+        position:absolute;
+        left:15px;
+        bottom:30%;
+    }
+    .input{
+        width: 12rem;
+        
+        
+    }
+    .header{
+        height: 57vh;
+    }
+    .header p{
+        max-width: 400px;
+        font-size: 18px;
+    }
+    
+}
+
+
+ 

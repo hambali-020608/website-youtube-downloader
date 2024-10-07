@@ -38,15 +38,15 @@ function Downloadmp4(){
             
         <HeaderFormat format="Mp4"/>
         
-        <div className="input-group mb-3">
-  <input type="text" className="form-control me-2 rounded-4 " style={{height:'2.5rem', width:'10rem'}} placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
-<button className="text-white rounded-4" type="button" id="button-addon2" onClick={download} style={{ 
-    backgroundColor:"#000000",
-    cursor: 'pointer',
-    width:'5rem',
-    height:'2.5rem'
+        <section className="input-group border border-secondary rounded-4 hero-section">
+            <b className="ms-3 mt-2">input url nya dibawah disini</b>
+            <div className="section-div" >
+  <input type="text" className=" me-2 rounded-2 input" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
+<button className=" rounded-2" type="button" id="button-addon2" onClick={download} style={{ 
+   
     }}>Search</button>
-</div>
+    </div>
+</section>
        {link}
        <img alt="" />
        </div>

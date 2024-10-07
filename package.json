@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "cookie-parser": "^1.4.6",
     "js-cookie": "^3.0.5",

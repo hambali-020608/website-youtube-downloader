@@ -1,6 +1,7 @@
 import { useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HeaderFormat from "../component/Header"
+import '../App.css'
 
 function Downloadmp3(){
     const [url,setUrl] = useState("")
@@ -28,10 +29,7 @@ function Downloadmp3(){
     return(
         <div>
         <HeaderFormat format="Mp3"/>
-        <div className="input-group mb-3">
-  <input type="text" className="form-control" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
-  <button className="btn btn-primary" type="button" id="button-addon2" onClick={download}>Search</button>
-</div>
+      
        {link}
        </div>
     )
