@@ -2,6 +2,7 @@ import { useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HeaderFormat from "../component/Header"
 import '../App.css'
+import Layout from "../layout/layout"
 
 function Downloadmp3(){
     const [url,setUrl] = useState("")
@@ -27,20 +28,18 @@ function Downloadmp3(){
     
 
     return(
-        <div>
-        <HeaderFormat format="Mp3"/>
       
-        <section className="input-group border border-secondary rounded-4 hero-section">
-            <b className="ms-3 mt-2">input url nya dibawah disini</b>
-            <div className="section-div" >
-  <input type="text" className=" me-2 rounded-2 input" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
+           <div>
+      <Layout format="mp3">  
+      <input type="text" className=" me-2 rounded-2 input" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
 <button className=" rounded-2" type="button" id="button-addon2" onClick={download} style={{ 
    
     }}>Search</button>
-    </div>
-</section>
-       {link}
-       </div>
+    
+       
+       </Layout>
+{link}
+</div>
     )
 }
 export default Downloadmp3
