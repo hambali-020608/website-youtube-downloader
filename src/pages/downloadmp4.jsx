@@ -15,7 +15,7 @@ function Downloadmp4(){
 
 
    async function download(){
-        const youtube = await fetch (`https://server-downloader-2brci75sy-hambalis-projects-37a7e0e5.vercel.app/download?url=${encodeURIComponent(url)}`,{
+        const youtube = await fetch (`https://server-downloader-a6bnd0zcq-hambalis-projects-37a7e0e5.vercel.app/download?url=${encodeURIComponent(url)}`,{
             method:'GET'
         }) 
         const data = await youtube.json()
