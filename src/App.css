@@ -1,11 +1,17 @@
 /* media query for laptop */
+.input-container{
+    max-width: 60%;
+    margin-left: 16rem;
+   position: relative;
+   bottom: 4.5rem;
+   background-color: white;
 
+}
 
 .hero-section{
     height: 8.5rem;
     position: relative;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    margin-bottom: 1rem;
     
 }
 
@@ -19,7 +25,7 @@
 .section-div button{
     background-color: #98FF98;
     cursor: 'pointer';
-    width:5rem;
+    width:6;
     height:2.5rem;
     margin-left: 2rem;
 }
@@ -29,21 +35,33 @@
 }
 
 .header{
-    height: 52vh;
+    padding: 4rem 1rem;
+    height: 90vh;
+    width: 100vw;
+   
+    
+    background: radial-gradient(35.36% 35.36% at 100% 25%,#0000 66%,#1A8FE5 68% 70%,#0000 72%) 32px 32px/calc(2*32px) calc(2*32px),
+    radial-gradient(35.36% 35.36% at 0    75%,#0000 66%,#1A8FE5 68% 70%,#0000 72%) 32px 32px/calc(2*32px) calc(2*32px),
+    radial-gradient(35.36% 35.36% at 100% 25%,#0000 66%,#1A8FE5 68% 70%,#0000 72%) 0 0/calc(2*32px) calc(2*32px),
+    radial-gradient(35.36% 35.36% at 0    75%,#0000 66%,#1A8FE5 68% 70%,#0000 72%) 0 0/calc(2*32px) calc(2*32px),
+    repeating-conic-gradient(#E4E4ED 0 25%,#0000 0 50%) 0 0/calc(2*32px) calc(2*32px),
+    radial-gradient(#0000 66%,#1A8FE5 68% 70%,#0000 72%) 0 calc(32px/2)/32px 32px
+    #E4E4ED;
+
    
 
     
 }
 
 .header h1 {
-    margin-top: 11rem;
+    margin-top: 5rem;
 }
 
 .header p{
     max-width:450px;
     word-wrap:'break-word';
     margin: 1rem auto 0 auto;
-    font-weight:'normal';
+    font-weight:bolder;
     font-size:20px;
    
 }
@@ -59,15 +77,23 @@
         
     }
     .header{
-        height: 62vh;
+        height: 90vh;
     }
     .header p{
         max-width: 400px;
+        
         font-size: 18px;
+        font-weight: bolder;
     }
 
     .header h1{
         margin-top: 7rem;
+    }
+    .input-container{
+        max-width: 90%;
+        bottom: 2rem;
+        background-color: white;
+        margin-left: 1.5rem;
     }
     
 }

@@ -4,8 +4,6 @@ import Typed from 'typed.js'
 import Navbar from './component/navbar'
 import Downloadmp3 from './pages/downloadmp3'
 import DownloadMp4 from './pages/downloadmp4'
-import moon from './assets/texture.jpg'
-import DownloadComponent from './pages/testing'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
@@ -40,7 +38,7 @@ function App() {
       
 
        </div>
-       <h4 ref={el} align="center"></h4>
+       <h4 ref={el} align="center " className='mt-5'></h4>
         </>
     )
 }

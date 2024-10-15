@@ -1,6 +1,5 @@
 import { useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import HeaderFormat from "../component/Header"
 import '../App.css'
 import Layout from "../layout/layout"
 
@@ -34,7 +33,7 @@ function Downloadmp3(){
       <input type="text" className=" me-2 rounded-2 input" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
 <button className=" rounded-2" type="button" id="button-addon2" onClick={download} style={{ 
    
-    }}>Search</button>
+    }}>Download</button>
     
        
        </Layout>

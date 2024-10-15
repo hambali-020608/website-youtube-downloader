@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "cookie-parser": "^1.4.6",
     "js-cookie": "^3.0.5",
@@ -20,7 +21,7 @@
     "react-dom": "^18.2.0",
     "typed.js": "^2.1.0"
   },
-  "proxy": "https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev",
+  "proxy": "https://server-downloader-2brci75sy-hambalis-projects-37a7e0e5.vercel.app",
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
