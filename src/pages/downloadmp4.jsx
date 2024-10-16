@@ -16,7 +16,7 @@ function Downloadmp4(){
 
 
    async function download(){
-        const youtube = await axios.get(`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev/download?url=${url}`) 
+        const youtube = await fetch(`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev/download?url=${url}`) 
         const data = await youtube.json()
         console.log(data)
         
