@@ -2,6 +2,7 @@ import { useState } from "react"
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
+import axios from "axios"
 
 
 function Downloadmp4(){
@@ -15,9 +16,7 @@ function Downloadmp4(){
 
 
    async function download(){
-        const youtube = await fetch (`https://server-downloader-a6bnd0zcq-hambalis-projects-37a7e0e5.vercel.app/download?url=${encodeURIComponent(url)}`,{
-            method:'GET'
-        }) 
+        const youtube = await axios.get(`https://server-downloader-mxigkgdxi-hambalis-projects-37a7e0e5.vercel.app/api/download?url=${url}`) 
         const data = await youtube.json()
         console.log(data)
         
