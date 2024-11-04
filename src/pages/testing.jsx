@@ -12,7 +12,7 @@ function DownloadComponent() {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
+        <div style={{ padding: '20px' }} top>
             <h1>YouTube Video Downloader</h1>
             <input
                 type="text"

@@ -25,11 +25,11 @@ function App() {
     return (
         <>
         
-        <Navbar>
+     <Navbar>
         <a className={`nav-link btn ${tabs === 'ytmp4' ? 'active' : ''}`} aria-current="page"  href='#' onClick={()=>setTabs("ytmp4")} style={tabs==='ytmp4'?{cursor:'pointer',fontSize:'30px'}:{}}>Youtube-mp4</a>
         <a className={`nav-link btn ${tabs === 'ytmp3' ? 'active' : ''}`} aria-current="page" href='#'  onClick={()=>setTabs("ytmp3")} style={tabs==='ytmp3'?{cursor:'pointer',fontSize:'30px'}:{}}>Youtube-mp3</a>
-        </Navbar>
-        <div className='d-flex justify-content-center mt-5'>
+        </Navbar> 
+    
        {tabs =='ytmp4' && <DownloadMp4/>}
        {tabs == 'ytmp3' && <Downloadmp3/>} 
       
@@ -37,8 +37,8 @@ function App() {
      
       
 
-       </div>
-       <h4 ref={el} align="center " className='mt-5'></h4>
+   
+       <h4 ref={el} align="center " style={{position:'relative',top:'14rem'}} className='mt-5'></h4>
         </>
     )
 }

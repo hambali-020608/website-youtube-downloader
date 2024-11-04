@@ -7,7 +7,7 @@ import axios from "axios"
 
 function Downloadmp4(){
     const [url,setUrl] = useState("")
-    const [link,setLink]=useState(<p align="center" >silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
+    const [link,setLink]=useState(<p align="center" style={{position:'relative',top:'10rem'}} >silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
     function handleinput(e){
         setUrl(e.target.value)
         
@@ -26,21 +26,19 @@ function Downloadmp4(){
         // const fileName = contentDisposition
         //         ? contentDisposition.split('filename=')[1].replace(/"/g, '')
         //         : 'download.mp4';
-                setLink(<a href={data.data.mp4} className='btn btn-danger ms-5'>Download!!!</a>)
+                setLink(<a href={data.data.mp4} className='btn btn-danger ms-5' style={{position:'relative',top:'10rem'}}>Download!!!</a>)
     }
     
 
     return(
-    <div>    
+    <div className="position-relative" style={{top:'3rem'}}>    
         
-<Layout format="mp4">
+ <Layout format="mp4">
+ <input type="text" className="form-control me-2" placeholder="Search..." value={url} onChange={handleinput}  />
+ <button className="btn btn-primary" type="button" onClick={download}>Search</button>
 
-
-  <input type="text" className=" me-2 rounded-2 input" placeholder="Masukan url youtube..." value={url} onChange={handleinput} aria-label="Recipient's username" aria-describedby="button-addon2"/>
-<button className=" rounded-2" type="button" id="button-addon2" onClick={download} style={{
-    }}>Download</button>
-</Layout>
-
+</Layout> 
+ 
 {link}
 
 </div>
