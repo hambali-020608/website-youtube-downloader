@@ -1,9 +1,10 @@
+
 import { useState,useRef,useEffect } from 'react'
-import './App.css'
+import '../App.css'
 import Typed from 'typed.js'
-import Navbar from './component/navbar'
-import Downloadmp3 from './pages/downloadmp3'
-import DownloadMp4 from './pages/downloadmp4'
+import Navbar from '../component/navbar'
+import Downloadmp3 from '../pages/downloadmp3'
+import DownloadMp4 from '../pages/downloadmp4'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {

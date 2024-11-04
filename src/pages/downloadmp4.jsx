@@ -1,11 +1,13 @@
+'use client'
 import { useState } from "react"
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
 import axios from "axios"
-
+import { useRouter } from "next/navigation"
 
 function Downloadmp4(){
+    const router = useRouter()
     const [url,setUrl] = useState("")
     const [link,setLink]=useState(<p align="center" style={{position:'relative',top:'10rem'}} >silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
     function handleinput(e){
@@ -16,17 +18,24 @@ function Downloadmp4(){
 
 
    async function download(){
-        const youtube = await fetch(`https://ef7606c5-873f-4284-9c57-a11cd7c69ce6-00-4merq8dnmhkp.pike.replit.dev/download?url=${url}`) 
+    try{
+        const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
-        console.log(data)
+        const video = data.data;
+
+        if (video.mp4) {
+            setLink(<a href={video.mp4} className='btn btn-danger ms-5' style={{ position: 'relative', top: '10rem' }} download>download</a>);
+        } else {
+            setLink(<p>Video tidak ditemukan.</p>);
         
-        // const blob= await youtube.blob()
-        // const urlfile=window.URL.createObjectURL(blob)
-        // const contentDisposition = youtube.headers.get('Content-Disposition');
-        // const fileName = contentDisposition
-        //         ? contentDisposition.split('filename=')[1].replace(/"/g, '')
-        //         : 'download.mp4';
-                setLink(<a href={data.data.mp4} className='btn btn-danger ms-5' style={{position:'relative',top:'10rem'}}>Download!!!</a>)
+    }
+        } catch(error){
+            console.error(error)
+        }
+       
+        
+     
+                // setLink(<a href={data.data.mp4} className='btn btn-danger ms-5' style={{position:'relative',top:'10rem'}}>Download!!!</a>)
     }
     
 
