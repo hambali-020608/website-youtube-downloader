@@ -7,7 +7,15 @@ export async function GET(request) {
     const url = searchParams.get('url')
   
     try {
-        const youtubeResponse = await Download('https://shinoa.us.kg/api/download/ytdl',url)
+        const youtubeResponse = await fetch('https://shinoa.us.kg/api/download/ytdl', {
+            method: 'POST',
+            headers: {
+                'accept': '*/*',
+                'api_key': 'free',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: url })
+        });
         if (!youtubeResponse.ok) {
             throw new Error(`HTTP error! Status: ${youtubeResponse.status}`);
         }
