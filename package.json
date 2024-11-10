@@ -11,12 +11,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@ybd-project/ytdl-core": "^6.0.6-2",
     "acorn": "^8.14.0",
-=======
-    "@distube/ytdl-core": "^4.15.1",
->>>>>>> 7b91e50bfaeb5d0359fe556352345e953f10b8a3
     "aos": "^2.3.4",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
