@@ -5,12 +5,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-   "dev": "next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@distube/ytdl-core": "^4.15.1",
     "aos": "^2.3.4",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",

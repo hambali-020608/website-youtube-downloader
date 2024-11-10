@@ -13,7 +13,7 @@ export async function GET(request){
 
         const data = await spotifyResponse.json()
 
-        NextResponse.json(data)
+      return  NextResponse.json(data)
 
     }catch (error) {
         return NextResponse.json(
