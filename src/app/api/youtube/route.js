@@ -1,36 +1,26 @@
 import { NextResponse } from "next/server";
-import Download from "../../../function/download";
 import ytdl from "@distube/ytdl-core";
 
-// TypeScript: import ytdl from '@distube/ytdl-core'; with --esModuleInterop
-// TypeScript: import * as ytdl from '@distube/ytdl-core'; with --allowSyntheticDefaultImports
-// TypeScript: import ytdl = require('@distube/ytdl-core'); with neither of the above
-
-// Get video info
-
-// Get video info with download formats
-  
-
 export async function GET(request) {
-    const searchParams = request.nextUrl.searchParams
-    const url = searchParams.get('url')
-  
+    const searchParams = request.nextUrl.searchParams;
+    const url = searchParams.get('url');
+
+    if (!url) {
+        return NextResponse.json(
+            { message: "URL parameter is missing" },
+            { status: 400 }
+        );
+    }
+
     try {
-        const info = await ytdl.getInfo(url)
-
-          return NextResponse.json(info.formats)
-          
-        // const youtubeResponse = await Download('https://shinoa.us.kg/api/download/ytdl',url)
-        // if (!youtubeResponse.ok) {
-        //     throw new Error(`HTTP error! Status: ${youtubeResponse.status}`);
-        // }
-
-        // const data = await youtubeResponse.json();
-        // return NextResponse.json(data);
+        const info = await ytdl.getInfo(url);
+        const formats = Array.isArray(info.formats) ? info.formats : [];
+        return NextResponse.json(formats);
     } catch (error) {
+        console.log("Error:", error);
         return NextResponse.json(
             { message: "Error fetching YouTube data", error: error.message },
             { status: 500 }
         );
     }
-  }
+}

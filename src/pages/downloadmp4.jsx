@@ -49,7 +49,7 @@ function Downloadmp4(){
  <button className="btn btn-primary" type="button" onClick={download}>Search</button>
 
 </Layout> 
- 
+ telah di perbarui 1
 {datas.map((e,i)=>{
         return(
             <div key={i}>
