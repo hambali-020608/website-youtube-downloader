@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation"
 function Downloadmp4(){
     const router = useRouter()
     const [url,setUrl] = useState("")
+    const [datas,setDatas]=useState([])
     const [link,setLink]=useState(<p align="center" style={{position:'relative',top:'10rem'}} >silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
     function handleinput(e){
         setUrl(e.target.value)
@@ -21,14 +22,14 @@ function Downloadmp4(){
     try{
         const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
-        const video = data.data;
+        setDatas(data)
 
-        if (video.mp4) {
-            setLink(<a href={video.mp4} className='btn btn-danger ms-5' style={{ position: 'relative', top: '10rem' }} download>download</a>);
-        } else {
-            setLink(<p>Video tidak ditemukan.</p>);
+    //     if (video.mp4) {
+    //         setLink(<a href={video.mp4} className='btn btn-danger ms-5' style={{ position: 'relative', top: '10rem' }} download>download</a>);
+    //     } else {
+    //         setLink(<p>Video tidak ditemukan.</p>);
         
-    }
+    // }
         } catch(error){
             console.error(error)
         }
@@ -41,6 +42,7 @@ function Downloadmp4(){
 
     return(
     <div className="position-relative" style={{top:'3rem'}}>    
+  
         
  <Layout format="mp4">
  <input type="text" className="form-control me-2" placeholder="Search..." value={url} onChange={handleinput}  />
@@ -48,7 +50,13 @@ function Downloadmp4(){
 
 </Layout> 
  
-{link}
+{datas.map((e,i)=>{
+        return(
+            <div key={i}>
+            <a href={e.url}>{e.container}</a>
+            </div>
+        )
+    })}
 
 </div>
     )
