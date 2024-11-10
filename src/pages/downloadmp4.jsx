@@ -10,6 +10,7 @@ function Downloadmp4(){
     const router = useRouter()
     const [url,setUrl] = useState("")
     const [datas,setDatas]= useState([])
+
     const [link,setLink]=useState(<p align="center" style={{position:'relative',top:'10rem'}} >silahkan masukan url terlebih dahulu lalu tunggu teks ini berubah jadi tombol download</p>)
     function handleinput(e){
         setUrl(e.target.value)
@@ -43,6 +44,7 @@ function Downloadmp4(){
 
     return(
     <div className="position-relative" style={{top:'3rem'}}>    
+  
         
  <Layout format="mp4">
  <input type="text" className="form-control me-2" placeholder="Search..." value={url} onChange={handleinput}  />

@@ -31,9 +31,10 @@ try {
         // const data = await youtubeResponse.json();
         return NextResponse.json(data.formats);
     } catch (error) {
+        console.log("Error:", error);
         return NextResponse.json(
             { message: "Error fetching YouTube data", error: error.message },
             { status: 500 }
         );
     }
-  }
+}
