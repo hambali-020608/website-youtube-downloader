@@ -20,8 +20,12 @@ const ytdl = new YtdlCore({
 
 
 
-try {
-        const data = await ytdl.getBasicInfo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+
+        try {
+            const data = await ytdl.getBasicInfo(url);
+            const formats = Array.isArray(data.formats) ? data.formats : [];
+            return NextResponse.json(formats);
+      
         
         // const youtubeResponse = await Download('https://shinoa.us.kg/api/download/ytdl',url)
         // if (!youtubeResponse.ok) {
@@ -29,7 +33,7 @@ try {
         // }
 
         // const data = await youtubeResponse.json();
-        return NextResponse.json(data.formats);
+      
     } catch (error) {
         console.log("Error:", error);
         return NextResponse.json(
