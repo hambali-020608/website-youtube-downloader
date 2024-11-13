@@ -22,7 +22,7 @@ function Downloadmp4(){
     try{
         const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
-        setDatas(data)
+        console.log(data)
 
     //     if (video.mp4) {
     //         setLink(<a href={video.mp4} className='btn btn-danger ms-5' style={{ position: 'relative', top: '10rem' }} download>download</a>);
@@ -50,13 +50,6 @@ function Downloadmp4(){
 
 </Layout> 
  
-{datas.map((e,i)=>{
-        return(
-            <div key={i}>
-            <a href={e.url}>{e.container}</a>
-            </div>
-        )
-    })}
 
 </div>
     )
