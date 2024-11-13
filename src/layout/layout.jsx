@@ -7,9 +7,10 @@ function Layout({format,children}){
           
 <>   
         <HeaderFormat format={format}/>
-        <section className="border  rounded-4 mx-auto mt-1 d-flex border-dark w-75 h-25 hg-lg-25  rounded bg-white p-2 flex-column" style={{paddingLeft:'10rem', top:''}}>
+        <section  className="container h-md-auto  h-sm-auto border  rounded-4 pb-lg-5 mx-auto w-75  d-flex border-dark  rounded bg-white p-2 flex-column" style={{paddingLeft:'10rem', top:'',marginTop:'-3rem'}}>
            <p className="ms-3">Input url nya di bawah sini</p>
-        <div className=" d-flex " style={{maxWidth:''}}>
+        <div className="row">
+
  {children}
   </div>
   </section>

@@ -6,6 +6,8 @@ export async function GET(request){
     const url = searchParams.get('url')
     try{
         const spotifyResponse= await Download('https://shinoa.us.kg/api/download/spotifydl',url)
+        //https://statically.io/
+
 
         if(!spotifyResponse.ok){
             throw new Error(`HTTP error! Status: ${spotifyResponse.status}`)
