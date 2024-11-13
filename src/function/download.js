@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-const formatAudio = [ 'mp3', 'm4a', 'webm', 'acc', 'flac', 'opus', 'ogg', 'wav', '4k' ];
-const formatVideo = [ '360', '480', '720', '1080', '1440' ];
+const formatAudio = ['mp3', 'm4a', 'webm', 'acc', 'flac', 'opus', 'ogg', 'wav', '4k'];
+const formatVideo = ['360', '480', '720', '1080', '1440'];
 
 const ddownr = {
   download: async (url, format) => {
@@ -14,19 +14,20 @@ const ddownr = {
       });
     
       const data = response.data;
-      const media = await ddownr.cekProgress(data.id);
+      const media = await ddownr.cekProgress(data.id); // Menunggu hingga unduhan selesai
       return {
         success: true,
         format: format,
         title: data.title,
         thumbnail: data.info.image,
         downloadUrl: media
-      }
+      };
     } catch (error) {
       console.error("Error:", error.response ? error.response.data : error.message);
       return { success: false, message: error.message };
     }
   },
+
   cekProgress: async (id) => {
     try {
       const progressResponse = await axios.get(`https://p.oceansaver.in/ajax/progress.php?id=${id}`, {
@@ -41,20 +42,17 @@ const ddownr = {
       if (data.progress === 1000) {
         return data.download_url;
       } else {
-        console.log('Masih belum selesai wak 😂, sabar gw cek lagi...');
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        return ddownr.cekProgress(id);
+        console.log('Masih belum selesai, menunggu sebentar...');
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Menunggu 1 detik sebelum cek ulang
+        return ddownr.cekProgress(id); // Panggil kembali cekProgress
       }
-      return await ddownr.cekProgress(id);
     } catch (error) {
       console.error("Error:", error.response ? error.response.data : error.message);
       return { success: false, message: error.message };
     }
   }
+};
+
+export default async function download(url, format) {
+  return await ddownr.download(url, format);
 }
-
-export default async function download(url,format){
-const video = ddownr.download(url,format)
-return video
-
-} 
