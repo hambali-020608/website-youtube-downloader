@@ -11,6 +11,7 @@ function Downloadmp4(){
     const router = useRouter()
     const [url,setUrl] = useState("")
     const[quality,setQuality] = useState('mp3')
+    const [loading,setLoading]=useState(false)
     const [link,setLink]=useState(false)
     function handleinput(e){
         setUrl(e.target.value)
@@ -23,6 +24,7 @@ function Downloadmp4(){
 
 
    async function download(){
+    setLoading(true)
     try{
         const youtube = await fetch(`/api/youtube?url=${url}&format=${quality}`) 
         const data = await youtube.json()
@@ -38,6 +40,8 @@ function Downloadmp4(){
     // }
         } catch(error){
             console.error(error)
+        }finally{
+            setLoading(false)
         }
                 // setLink(<a href={data.data.mp4} className='btn btn-danger ms-5' style={{position:'relative',top:'10rem'}}>Download!!!</a>)
     }
@@ -69,11 +73,18 @@ function Downloadmp4(){
         </div>
 </Layout> 
 
- <div className="d-flex align-items-center justify-content-center mt-5">
-{link ? (<Card link={link} type='mp3'/>): (
-  ''
-)}
-</div>
+<div className="d-flex align-items-center justify-content-center mt-5">
+  
+  
+  {loading && <div className="d-flex align-items-center">
+    <strong role="status">Loading...</strong>
+    <div className="spinner-border ms-auto" aria-hidden="true"></div>
+  </div>}
+  
+  {!loading && link && (
+    <Card link={link} type='mp3'/>
+  )}
+  </div>
 
  
 
