@@ -7,7 +7,7 @@ import axios from "axios"
 import { useRouter } from "next/navigation"
 import Card from "../component/card"
 const formatAudio = [ 'mp3', 'm4a', 'webm', 'acc', 'flac', 'opus', 'ogg', 'wav', '4k' ];
-function Downloadmp4(){
+function Downloadmp3(){
     const router = useRouter()
     const [url,setUrl] = useState("")
     const[quality,setQuality] = useState('mp3')
@@ -92,4 +92,4 @@ function Downloadmp4(){
 </div>
     )
 }
-export default Downloadmp4
+export default Downloadmp3
