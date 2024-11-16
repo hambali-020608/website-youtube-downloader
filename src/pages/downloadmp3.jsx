@@ -6,6 +6,7 @@ import Layout from "../layout/layout"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import Card from "../component/card"
+import Tutorial from "../component/tutorial"
 const formatAudio = [ 'mp3', 'm4a', 'webm', 'acc', 'flac', 'opus', 'ogg', 'wav', '4k' ];
 function Downloadmp3(){
     const router = useRouter()
@@ -72,21 +73,23 @@ function Downloadmp3(){
             <button className="btn btn-primary w-100 w-md-auto" type="button" onClick={download}>Search</button>
         </div>
 </Layout> 
+<h2 className="mt-5" align="center">Hasil download ada di bawah</h2>
+<p align="center"> 👇👇👇</p>
 
-<div className="d-flex align-items-center justify-content-center mt-5">
+<div style={{minHeight:'100vh'}} className="d-flex align-items-center justify-content-center mt-5">
   
   
   {loading && <div className="d-flex align-items-center">
     <strong role="status">Loading...</strong>
     <div className="spinner-border ms-auto" aria-hidden="true"></div>
   </div>}
-  
+ 
   {!loading && link && (
     <Card link={link} type='mp3'/>
   )}
   </div>
 
- 
+<Tutorial title="Audio"/> 
 
 
 </div>

@@ -65,11 +65,12 @@ function Downloadmp4(){
 
  </div>
  <div className="col-12 col-md-auto mt-2 mt-md-0 text-md-end">
-            <button className="btn btn-primary w-100 w-md-auto" type="button" onClick={download}>Search</button>
+            <button style={{backgroundColor:'#98FF98'}} className="btn w-100 w-md-auto" type="button" onClick={download}>Search</button>
         </div>
 </Layout> 
+ <h2 className="mt-5" align="center">Hasil download ada di bawah</h2>
+<p align="center"> 👇👇👇</p>
  <div style={{minHeight:'100vh'}} className="d-flex align-items-center justify-content-center mt-5">
-  
   
 {loading && <div className="d-flex align-items-center">
   <strong role="status">Loading...</strong>
@@ -81,8 +82,7 @@ function Downloadmp4(){
 )}
 </div>
 
- 
-<Tutorial/>
+<Tutorial title="Video"/>
 
 
 
