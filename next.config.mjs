@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    reactStrictMode: true, // Mengaktifkan Strict Mode
+    experimental: {}, // Pastikan kosong jika tidak ada fitur eksperimental
+  };
+  
+  export default nextConfig;
+  

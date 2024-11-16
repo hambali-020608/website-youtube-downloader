@@ -6,6 +6,7 @@ import Layout from "../layout/layout"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import Card from "../component/card"
+import Tutorial from "../component/tutorial"
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
 function Downloadmp4(){
     const router = useRouter()
@@ -67,7 +68,7 @@ function Downloadmp4(){
             <button className="btn btn-primary w-100 w-md-auto" type="button" onClick={download}>Search</button>
         </div>
 </Layout> 
- <div className="d-flex align-items-center justify-content-center mt-5">
+ <div style={{minHeight:'100vh'}} className="d-flex align-items-center justify-content-center mt-5">
   
   
 {loading && <div className="d-flex align-items-center">
@@ -81,6 +82,9 @@ function Downloadmp4(){
 </div>
 
  
+<Tutorial/>
+
+
 
 
 </div>
