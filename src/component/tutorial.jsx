@@ -14,10 +14,10 @@ export default function Tutorial({title}) {
         <h1 align="center" className="pb-5"><b>Cara Mendownload {title} Dengan YTDL-PROF</b></h1>
 
         <div className="container bg-body-secondary pt-5">
-          <div className="row pt-5">
+          <div className="row pt-5 text-md-center">
             <div className="col-12 col-lg-6">
-              <h3>1. Copy url dari youtube</h3>
-              <p>
+              <h3 className="text-wrap">1. Copy url dari youtube</h3>
+              <p className="text">
                 Copy url yang ingin {title} yang ingin anda unduh lalu, caranya
                 biasanya ada bagian bagikan lalu nanti akan muncul url youtube
                 nya, setelah muncul copy url tersebut.
