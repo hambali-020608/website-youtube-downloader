@@ -20,13 +20,13 @@ export default function Footer(){
         }
     },[])
     return(
-        <footer class="bg-body-tertiary text-center">
+        <footer className="bg-body-tertiary text-center">
 
-  <div class="container p-4"></div>
+  <div className="container p-4"></div>
 
 
   
-  <div class="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.05)"}}>
+  <div className="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.05)"}}>
     
     
   <h4 ref={el} ></h4>
@@ -42,7 +42,7 @@ export default function Footer(){
     
 
   </div>
-  © 2024 <a class="text-body" href="https://ytdl-prof.vercel.app">YTDL-PROF</a>. All Rights Reserved.
+  © 2024 <a className="text-body" href="https://ytdl-prof.vercel.app">YTDL-PROF</a>. All Rights Reserved.
   </div>
 
 </footer>

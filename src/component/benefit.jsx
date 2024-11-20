@@ -11,52 +11,52 @@ export default function Benefit() {
       </h1>
 
       <div className="container pt-5">
-        <div class="row row-cols-1 row-cols-md-3 ">
-          <div class="col  ">
-            <div class="card text-center h-100 card-hover ">
+        <div className="row row-cols-1 row-cols-md-3 ">
+          <div className="col  ">
+            <div className="card text-center h-100 card-hover ">
               <img
                 src={rocket.src}
                 width="50px"
                 height="50px"
-                class=" m-auto pt-3 card-img-top"
+                className=" m-auto pt-3 card-img-top"
                 alt="..."
               />
-              <div class="card-body">
-                <h5 class="card-title pb-2">Lebih Cepat</h5>
-                <p class="card-text">Teknologi lebih cepat dan lebih canggih</p>
+              <div className="card-body">
+                <h5 className="card-title pb-2">Lebih Cepat</h5>
+                <p className="card-text">Teknologi lebih cepat dan lebih canggih</p>
               </div>
             </div>
           </div>
-          <div class="col mt-4 mt-lg-0">
-            <div class="card text-center h-100 card-hover">
+          <div className="col mt-4 mt-lg-0">
+            <div className="card text-center h-100 card-hover">
               <img
                 src={ads.src}
-                class="pt-3 m-auto card-img-top"
+                className="pt-3 m-auto card-img-top"
                 alt="..."
                 width="50px"
                 height="50px"
               />
-              <div class="card-body">
-                <h5 class="card-title pb-2">Bebas Iklan</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title pb-2">Bebas Iklan</h5>
+                <p className="card-text">
                   Aman dari virus dan download lebih mudah karna tidak ada
                   iklan.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card h-100 mt-4 mt-lg-0 text-center card-hover">
+          <div className="col">
+            <div className="card h-100 mt-4 mt-lg-0 text-center card-hover">
               <img
                 src={money.src}
                 width="50px"
                 height="50px"
-                class="m-auto pt-3 card-img-top"
+                className="m-auto pt-3 card-img-top"
                 alt="..."
               />
-              <div class="card-body">
-                <h5 class="card-title pb-2">Gratis</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title pb-2">Gratis</h5>
+                <p className="card-text">
                   Tidak memungut biaya dan tidak perlu login untuk mendownload
                   video atau audio youtube
                 </p>

@@ -30,7 +30,6 @@ function Downloadmp4(){
         const youtube = await fetch(`/api/youtube?url=${url}&format=${quality}`) 
         const data = await youtube.json()
          setLink(data)
-        setError('')
         } catch(error){
             console.error(error)
             
