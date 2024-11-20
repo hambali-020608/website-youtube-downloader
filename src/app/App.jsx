@@ -7,23 +7,12 @@ import Downloadmp3 from '../pages/downloadmp3'
 import DownloadMp4 from '../pages/downloadmp4'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Benefit from '../component/benefit'
+import Footer from '../component/footer'
 
 function App() {
     const [tabs,setTabs]= useState("ytmp4")
-    const el = useRef(null)
-    const typed = useRef(null)
-
-    useEffect(()=>{
-        typed.current = new Typed(el.current,{
-            strings: ['Made by Hambali Subastian'],
-            typeSpeed:50,
-            backSpeed:25,
-            loop:true
-        })
-        return ()=>{
-            typed.current.destroy()
-        }
-    },[])
+   
     return (
         <>
         
@@ -32,17 +21,18 @@ function App() {
         <a className={`nav-link btn ${tabs === 'ytmp3' ? 'active' : ''}`} aria-current="page" href='#'  onClick={()=>setTabs("ytmp3")} style={tabs==='ytmp3'?{cursor:'pointer',fontSize:'30px'}:{}}>Youtube-mp3</a>
      
         </Navbar> 
-    
+    <main>
        {tabs =='ytmp4' && <DownloadMp4/>}
        {tabs == 'ytmp3' && <Downloadmp3/>} 
     
+    <Benefit/>
+    <Footer/>
+    </main>
       
-      {/* <DownloadComponent/> */}
      
       
 
    
-       <h4 ref={el} align="center " style={{position:'relative',top:'14rem'}} className='mt-5'></h4>
         </>
     )
 }

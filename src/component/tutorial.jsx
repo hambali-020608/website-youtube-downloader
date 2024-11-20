@@ -5,13 +5,13 @@ import tutorial4 from "../../public/img/tutorial4.png";
 export default function Tutorial({title}) {
   return (
     <>
-      {console.log(tutorial1)}
+      
       <section
         className=""
         style={{ minHeight: "100vh" }}
         id="tutorial"
       >
-        <h1 align="center" className="pb-5"><b>Cara Mendownload {title} Dengan YTDL-PROF</b></h1>
+        <h1 align="center" className="pb-5"><b>Cara Mendownload {title} Dengan YTDL<div className=' fw-bold text-primary d-inline'>-PROF</div> </b></h1>
 
         <div className="container bg-body-secondary pt-5">
           <div className="row pt-5 ">

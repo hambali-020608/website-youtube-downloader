@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
 import Card from "../component/card"
 import Tutorial from "../component/tutorial"
+import Benefit from "../component/benefit"
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
 function Downloadmp4(){
     const [url,setUrl] = useState("")
@@ -81,6 +82,7 @@ function Downloadmp4(){
 </div>
 
 <Tutorial title="Video"/>
+
 
 
 

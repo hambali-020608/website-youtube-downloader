@@ -5,7 +5,6 @@ body,html{
    font-family: "Noto Serif", serif;
 }
 
-
 @media (min-width:992px){  
    .navbar-nav{
     margin-left: 9rem;
@@ -13,4 +12,5 @@ body,html{
    }
 
 }
+
 
