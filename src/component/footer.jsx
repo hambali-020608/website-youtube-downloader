@@ -10,7 +10,7 @@ export default function Footer(){
 
     useEffect(()=>{
         typed.current = new Typed(el.current,{
-            strings: ['Made by @tyan.dev'],
+            strings: ['Made by <b className="text-primary">@tyan.dev</b>'],
             typeSpeed:50,
             backSpeed:25,
             loop:true

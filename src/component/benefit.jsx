@@ -12,8 +12,8 @@ export default function Benefit() {
 
 <div className="container pt-5">
     <div class="row row-cols-1 row-cols-md-3 ">
-  <div class="col" >
-    <div class="card text-center h-100 card-hover">
+  <div class="col  " >
+    <div class="card text-center h-100 card-hover ">
       <img src={rocket.src} width="50px" height="50px" class=" m-auto pt-3 card-img-top" alt="..."/>
       <div class="card-body">
         <h5 class="card-title pb-2">Lebih Cepat</h5>
@@ -21,7 +21,7 @@ export default function Benefit() {
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col mt-4 mt-lg-0">
     <div class="card text-center h-100 card-hover">
       <img src={ads.src} class="pt-3 m-auto card-img-top" alt="..." width="50px" height="50px"/>
       <div class="card-body">
@@ -31,7 +31,7 @@ export default function Benefit() {
     </div>
   </div>
   <div class="col">
-    <div class="card h-100 text-center card-hover">
+    <div class="card h-100 mt-4 text-center card-hover">
       <img src={money.src} width="50px" height="50px" class="m-auto pt-3 card-img-top" alt="..."/>
       <div class="card-body">
         <h5 class="card-title pb-2">Gratis</h5>
