@@ -1,18 +1,15 @@
 'use client'
-import { useState } from "react"
+import { useRef, useState } from "react"
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
-import axios from "axios"
-import { useRouter } from "next/navigation"
 import Card from "../component/card"
 import Tutorial from "../component/tutorial"
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
 function Downloadmp4(){
-    const router = useRouter()
     const [url,setUrl] = useState("")
+    const loadingRef=useRef(null)
     const [loading,setLoading]=useState(false)
-    const [error,setError]=useState('')
     const[quality,setQuality] = useState('720')
     const [link,setLink]=useState(false)
     function handleinput(e){
@@ -27,6 +24,7 @@ function Downloadmp4(){
 
    async function download(){
      setLoading(true)
+     loadingRef.current.scrollIntoView({behavior:'smooth'})
     try{
         const youtube = await fetch(`/api/youtube?url=${url}&format=${quality}`) 
         const data = await youtube.json()
@@ -70,9 +68,9 @@ function Downloadmp4(){
 </Layout> 
  <h2 className="mt-5" align="center">Hasil download ada di bawah</h2>
 <p align="center"> 👇👇👇</p>
- <div style={{minHeight:'100vh'}} className="d-flex align-items-center justify-content-center mt-5">
+ <div style={{minHeight:'50vh'}} ref={loadingRef} className="d-flex align-items-center justify-content-center mt-5">
   
-{loading && <div className="d-flex align-items-center">
+{loading && <div  className="d-flex align-items-center">
   <strong role="status">Loading...</strong>
   <div className="spinner-border ms-auto" aria-hidden="true"></div>
 </div>}

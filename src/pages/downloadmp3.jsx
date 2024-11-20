@@ -76,7 +76,7 @@ function Downloadmp3(){
 <h2 className="mt-5" align="center">Hasil download ada di bawah</h2>
 <p align="center"> 👇👇👇</p>
 
-<div style={{minHeight:'100vh'}} className="d-flex align-items-center justify-content-center mt-5">
+<div style={{minHeight:'50vh'}} className="d-flex align-items-center justify-content-center mt-5">
   
   
   {loading && <div className="d-flex align-items-center">

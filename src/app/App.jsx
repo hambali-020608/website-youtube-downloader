@@ -7,7 +7,7 @@ import Downloadmp3 from '../pages/downloadmp3'
 import DownloadMp4 from '../pages/downloadmp4'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Spotify from '../pages/spotifyDownload'
+
 function App() {
     const [tabs,setTabs]= useState("ytmp4")
     const el = useRef(null)
