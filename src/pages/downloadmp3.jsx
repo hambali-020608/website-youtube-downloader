@@ -37,6 +37,7 @@ function Downloadmp3(){
           setLoading(false)
         }
         else{
+          setMessage('')
          setLink(data)
         }
       

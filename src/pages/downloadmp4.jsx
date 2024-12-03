@@ -37,6 +37,7 @@ function Downloadmp4(){
           setLoading(false)
         }
         else{
+        setMessage('')
          setLink(data)
         }
         } catch(error){
