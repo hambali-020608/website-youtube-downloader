@@ -12,6 +12,7 @@ function Downloadmp3(){
     const router = useRouter()
     const [url,setUrl] = useState("")
     const[quality,setQuality] = useState('mp3')
+    const [message,setMessage]=useState('')
     const [loading,setLoading]=useState(false)
     const [link,setLink]=useState(false)
     function handleinput(e){
@@ -29,7 +30,16 @@ function Downloadmp3(){
     try{
         const youtube = await fetch(`/api/youtube?url=${url}&format=${quality}`) 
         const data = await youtube.json()
-        setLink(data)
+        
+        if(data.seconds >= 3600){
+          setMessage('Video/Audio Tidak Boleh Lebih Dari 1 Jam')
+          setLink(false)
+          setLoading(false)
+        }
+        else{
+         setLink(data)
+        }
+      
         
         // const video = await data.resultUrl;
         //  setLink(video)
@@ -39,6 +49,7 @@ function Downloadmp3(){
     //         setLink(<p>Video tidak ditemukan.</p>);
         
     // }
+    
         } catch(error){
             console.error(error)
         }finally{
@@ -68,11 +79,14 @@ function Downloadmp3(){
 <div style={{minHeight:'50vh'}} className="d-flex align-items-center justify-content-center mt-5">
   
   
+
   {loading && <div className="d-flex align-items-center">
     <strong role="status">Loading...</strong>
     <div className="spinner-border ms-auto" aria-hidden="true"></div>
   </div>}
  
+{message}
+
   {!loading && link && (
     <Card link={link} type='mp3'/>
   )}

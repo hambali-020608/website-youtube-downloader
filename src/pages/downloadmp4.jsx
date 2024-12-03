@@ -9,9 +9,10 @@ import Benefit from "../component/benefit"
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
 function Downloadmp4(){
     const [url,setUrl] = useState("")
+    const [error,setError]=useState(false)
     const loadingRef=useRef(null)
     const [loading,setLoading]=useState(false)
-    const[quality,setQuality] = useState('720')
+    const [message,setMessage]=useState('')
     const [link,setLink]=useState(false)
     function handleinput(e){
         setUrl(e.target.value)
@@ -29,8 +30,15 @@ function Downloadmp4(){
     try{
         const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
-        console.log(data)
+
+        if(data.seconds >= 3600){
+          setMessage('Video/Audio Tidak Boleh Lebih Dari 1 Jam')
+          setLink(false)
+          setLoading(false)
+        }
+        else{
          setLink(data)
+        }
         } catch(error){
             console.error(error)
             setLink(false)
@@ -63,7 +71,9 @@ function Downloadmp4(){
   <div className="spinner-border ms-auto" aria-hidden="true"></div>
 </div>}
 
-{!loading && link && (
+<h1>{message}</h1>
+
+{!loading && link &&  (
   <Card link={link} type='mp4'/>
 )}
 </div>
