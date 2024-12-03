@@ -27,12 +27,12 @@ function Downloadmp4(){
      setLoading(true)
      loadingRef.current.scrollIntoView({behavior:'smooth'})
     try{
-        const youtube = await fetch(`/api/youtube?url=${url}&format=${quality}`) 
+        const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
+        console.log(data)
          setLink(data)
         } catch(error){
             console.error(error)
-            
             setLink(false)
         }finally{
           setLoading(false)
@@ -48,18 +48,6 @@ function Downloadmp4(){
  <div className="col">
 
  <input type="text" className="form-control me-2" placeholder="Search..." value={url} onChange={handleinput}  />
-
- </div>
- <div className="col-md-auto">
-
- <select value={quality}  onChange={handleQuality} className="form-select " aria-label="Default select example">
- 
-  {formatVideo.map((f,i)=>{
-    return(
-        <option value={f} key={i}>{f}p</option>
-    )
-  })}
-</select>
 
  </div>
  <div className="col-12 col-md-auto mt-2 mt-md-0 text-md-end">

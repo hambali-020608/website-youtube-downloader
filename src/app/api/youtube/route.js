@@ -4,10 +4,10 @@ import download from "../../../function/download";
 export async function GET(request) {
     const searchParams = request.nextUrl.searchParams;
     const url = searchParams.get('url');
-    const format = searchParams.get('format');
+    
 
     // Validasi URL dan format
-    if (!url || !format) {
+    if (!url) {
         return NextResponse.json(
             { message: "Parameter URL dan format diperlukan" },
             { status: 400 }
@@ -15,11 +15,11 @@ export async function GET(request) {
     }
 
     try {
-        const video = await download(url, format);
+        const video = await download(url);
         
         // Pastikan untuk memeriksa apakah respons `video` berhasil
         if (video.success) {
-            return NextResponse.json(video);
+            return NextResponse.json(video.result);
         } else {
             return NextResponse.json(
                 { message: "Gagal mengunduh video", error: video.message },

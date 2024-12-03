@@ -57,18 +57,7 @@ function Downloadmp3(){
  <input type="text" className="form-control me-2" placeholder="Search..." value={url} onChange={handleinput}  />
 
  </div>
- <div className="col-md-auto">
-
- <select value={quality}  onChange={handleQuality} className="form-select " aria-label="Default select example">
  
-  {formatAudio.map((f,i)=>{
-    return(
-        <option value={f} key={i}>{f}</option>
-    )
-  })}
-</select>
-
- </div>
  <div className="col-12 col-md-auto mt-2 mt-md-0 text-md-end">
             <button className="btn btn-primary w-100 w-md-auto" type="button" onClick={download}>Search</button>
         </div>
