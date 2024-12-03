@@ -85,7 +85,7 @@ function Downloadmp3(){
     <div className="spinner-border ms-auto" aria-hidden="true"></div>
   </div>}
  
-{message}
+<h1>{message}</h1>
 
   {!loading && link && (
     <Card link={link} type='mp3'/>
