@@ -28,7 +28,7 @@ function Downloadmp4(){
      setLoading(true)
      loadingRef.current.scrollIntoView({behavior:'smooth'})
     try{
-        const youtube = await fetch(`/api/youtube?url=${url}`) 
+        const youtube = await fetch(`/api/youtube?url=${url}&format=mp4`) 
         const data = await youtube.json()
 
         if(data.seconds >= 3600){

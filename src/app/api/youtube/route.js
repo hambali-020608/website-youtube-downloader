@@ -4,6 +4,7 @@ import download from "../../../function/download";
 export async function GET(request) {
     const searchParams = request.nextUrl.searchParams;
     const url = searchParams.get('url');
+    const format = searchParams.get('format');
     
 
     // Validasi URL dan format
@@ -15,14 +16,14 @@ export async function GET(request) {
     }
 
     try {
-        const video = await download(url);
+        const video = await download(url,format);
         
         // Pastikan untuk memeriksa apakah respons `video` berhasil
-        if (video.success) {
+        if (video) {
             return NextResponse.json(video.result);
         } else {
             return NextResponse.json(
-                { message: "Gagal mengunduh video", error: video.message },
+                { message: "Gagal mengunduh video" },
                 { status: 500 }
             );
         }

@@ -28,7 +28,7 @@ function Downloadmp3(){
    async function download(){
     setLoading(true)
     try{
-        const youtube = await fetch(`/api/youtube?url=${url}&format=${quality}`) 
+        const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
         
         if(data.seconds >= 3600){
