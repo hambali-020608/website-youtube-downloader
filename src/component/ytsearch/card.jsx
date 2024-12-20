@@ -37,7 +37,7 @@ const router = useRouter()
     <li className="list-group-item">
       <div className="row">
           <h4 className="col card-title border-end">Author</h4>
-          <h5 className="col">{}</h5>
+          <h5 className="col">{link.author.name}</h5>
       </div>
     </li>
     <li className="list-group-item">
