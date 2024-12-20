@@ -1,9 +1,10 @@
 'use client'
 import { useRef, useState } from "react"
 import "../App.css"
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
-import Card from "../component/card"
+import Card from "../component/ytsearch/card"
 import Tutorial from "../component/tutorial"
 import Benefit from "../component/benefit"
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
@@ -78,11 +79,19 @@ function YtSearch(){
 {/* {!loading && link &&  (
   <Card link={link} type='mp4'/>
 )} */}
-{link.map((video)=>{
+
+<div className="container">
+<div className="d-block gap-3 d-lg-flex justify-content-sm-center">
+  {link.map((video)=>{
     console.log(video)
-    return <Card type='search' link={video}/>
+    return  <Card link={video}/>
 })}
 </div>
+
+</div>
+</div>
+
+{/* <Card  link={link}/> */}
 
 <Tutorial title="Video"/>
 
