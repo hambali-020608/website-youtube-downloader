@@ -28,19 +28,12 @@ function Downloadmp4(){
      setLoading(true)
      loadingRef.current.scrollIntoView({behavior:'smooth'})
     try{
-        const youtube = await fetch(`/api/youtube?url=${url}&format=mp4`) 
+        const youtube = await fetch(`/api/youtube?url=${url}`) 
         
         const data = await youtube.json()
 
-        if(data.seconds >= 3600){
-          setMessage('Video/Audio Tidak Boleh Lebih Dari 1 Jam')
-          setLink(false)
-          setLoading(false)
-        }
-        else{
-        setMessage('')
          setLink(data)
-        }
+        
         } catch(error){
             console.error(error)
             setLink(false)
@@ -74,11 +67,15 @@ function Downloadmp4(){
 </div>}
 
 <h1>{message}</h1>
+{console.log(link)}
+
 
 {!loading && link &&  (
   <Card link={link} type='mp4'/>
 )}
+
 </div>
+
 
 <Tutorial title="Video"/>
 

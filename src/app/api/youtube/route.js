@@ -7,7 +7,7 @@ export async function GET(request) {
     const format = searchParams.get("format");
 
     // Validasi parameter
-    if (!url || !format) {
+    if (!url) {
         return NextResponse.json(
             { message: "Parameter URL dan format diperlukan" },
             { status: 400 }
@@ -16,11 +16,11 @@ export async function GET(request) {
 
     try {
         // Memanggil fungsi download
-        const video = await download(url, format);
+        const video = await download(url);
 
         // Validasi data yang diterima dari fungsi download
-        if (video && video.result) {
-            return NextResponse.json(video.result); // Pastikan video.result adalah objek yang bisa di-serialize
+        if (video) {
+            return NextResponse.json(video); // Pastikan video.result adalah objek yang bisa di-serialize
         } else {
             return NextResponse.json(
                 { message: "Gagal mendapatkan data video" },
