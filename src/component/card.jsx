@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Card({ link, type }) {
   const router = useRouter();
-  const [downloadLink, setDownloadLink] = useState(link.video[0].downloadLink);
+  const [downloadLink, setDownloadLink] = useState(type === 'mp4' ? link.video[0].downloadLink : link.audio[0].downloadLink);
 
   async function handleDownload() {
     const response = await fetch(`/api/youtube?url=${link.url}&format=mp4`);
@@ -65,7 +65,15 @@ export default function Card({ link, type }) {
                               </option>
                             );
                           })
-                        : ""}
+                        : link.audio.map((v,i)=>{
+                          return (
+                            <option key={i} value={v.downloadLink}>
+                              Resolution: {v.fileType} | Size {v.fileSize}
+                            </option>
+                          );
+                        })}
+
+                        
                     </select>
 
                     <a

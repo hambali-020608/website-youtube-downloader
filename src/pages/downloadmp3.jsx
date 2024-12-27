@@ -31,15 +31,9 @@ function Downloadmp3(){
         const youtube = await fetch(`/api/youtube?url=${url}`) 
         const data = await youtube.json()
         
-        if(data.seconds >= 3600){
-          setMessage('Video/Audio Tidak Boleh Lebih Dari 1 Jam')
-          setLink(false)
-          setLoading(false)
-        }
-        else{
-          setMessage('')
+        
          setLink(data)
-        }
+        
       
         
         // const video = await data.resultUrl;
