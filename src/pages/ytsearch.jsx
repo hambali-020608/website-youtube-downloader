@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
 import Card from "../component/ytsearch/card"
 import Tutorial from "../component/tutorial"
-import Benefit from "../component/benefit"
+
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
 function YtSearch(){
     const [url,setUrl] = useState("")

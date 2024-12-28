@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from "../layout/layout"
 import Card from "../component/card"
 import Tutorial from "../component/tutorial"
-import Loading from "../component/loading"
+
 function Downloadmp4(){
     const [url,setUrl] = useState("")
     const [error,setError]=useState(false)
@@ -80,5 +80,17 @@ function Downloadmp4(){
 
 </div>
     )
+
+    function Loading() {
+      return(
+        <div  className="d-flex align-items-center">
+        <strong role="status">Loading...</strong>
+        <div className="spinner-border ms-auto" aria-hidden="true"></div>
+      </div>
+      )
+      
+    }
 }
+
+
 export default Downloadmp4
