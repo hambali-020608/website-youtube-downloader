@@ -82,9 +82,14 @@ function YtSearch(){
 
 <div className="container">
 <div className="d-block gap-3 d-lg-flex justify-content-sm-center">
-  {link.map((video)=>{
-    console.log(video)
-    return  <Card link={video}/>
+  {link.map((video,i)=>{
+    
+    return  (
+      <div key={i}>
+    <Card link={video}/>
+    </div>
+      
+    )
 })}
 </div>
 

@@ -6,6 +6,7 @@ import Layout from "../layout/layout"
 import Card from "../component/card"
 import Tutorial from "../component/tutorial"
 import Benefit from "../component/benefit"
+import Loading from "../component/loading"
 const formatVideo = [ '720','360', '480', '1080', '1440' ];
 function Downloadmp4(){
     const [url,setUrl] = useState("")
@@ -61,13 +62,9 @@ function Downloadmp4(){
 <p align="center"> 👇👇👇</p>
  <div style={{minHeight:'50vh'}} ref={loadingRef} className="d-flex align-items-center justify-content-center mt-5">
   
-{loading && <div  className="d-flex align-items-center">
-  <strong role="status">Loading...</strong>
-  <div className="spinner-border ms-auto" aria-hidden="true"></div>
-</div>}
+{loading && <Loading/>}
 
 <h1>{message}</h1>
-{console.log(link)}
 
 
 {!loading && link &&  (
