@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import Loading from "../loading";
-import Button from "../button";
+import Button from "../button"
 
 export default function Card({ link }) {
   const router = useRouter();
