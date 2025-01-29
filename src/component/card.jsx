@@ -49,32 +49,28 @@ export default function Card({ link, type }) {
                 </li>
                 <li className="list-group-item">
                   <div className="row">
-                    <select
-                      
-                      defaultValue={link.video[0].downloadLink}
-                      className="form-select col"
-                      onChange={(e) => setDownloadLink(e.target.value)}
-                      aria-label="Default select example"
-                    >
-
-                      {type == "mp4"
-                        ? link.video.map((v, i) => {
-                            return (
-                              <option key={i} value={v.downloadLink}>
-                                Resolution: {v.fileType} | Size {v.fileSize}
-                              </option>
-                            );
-                          })
-                        : link.audio.map((v,i)=>{
-                          return (
-                            <option key={i} value={v.downloadLink}>
-                              Resolution: {v.fileType} | Size {v.fileSize}
-                            </option>
-                          );
-                        })}
-
-                        
-                    </select>
+                  <select
+            className="w-full p-3 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50 backdrop-blur-sm hover:bg-gray-50 transition-colors duration-200"
+            onChange={(e) => setDownloadLink(e.target.value)}
+            defaultValue={type === "mp4" ? link.video[0].downloadLink : link.audio[0].downloadLink}
+          >
+            {type === "mp4"
+              ? link.video.map((v, i) => (
+                  <option key={i} value={v.downloadLink}>
+                    {v.fileType} • {v.fileSize}
+                  </option>
+                ))
+              : link.audio.map((v, i) => (
+                  <option key={i} value={v.downloadLink}>
+                    {v.fileType} • {v.fileSize}
+                  </option>
+                ))}
+            {link.other?.map((v, i) => (
+              <option key={i} value={v.downloadLink}>
+                {v.fileType} • {v.fileSize}
+              </option>
+            ))}
+          </select>
 
                     <a
                       href={downloadLink}

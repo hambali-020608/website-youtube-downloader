@@ -46,39 +46,60 @@ function Downloadmp4(){
     return(
     <div className="position-relative" style={{top:'3rem'}}>    
         
- <Layout format="mp4">
- <div className="col">
-
- <input type="text" className="form-control me-2" placeholder="Search..." value={url} onChange={handleinput}  />
-
- </div>
- <div className="col-12 col-md-auto mt-2 mt-md-0 text-md-end">
-            <button style={{backgroundColor:'#98FF98'}} className="btn w-100 w-md-auto" type="button" onClick={download}>Search</button>
+    <Layout format="mp4">
+        <div className="col">
+            <div className="input-group">
+                <input 
+                    type="text" 
+                    className="form-control form-control-lg border-2" 
+                    style={{
+                        borderRadius: '15px 0 0 15px',
+                        padding: '0.8rem 1.2rem',
+                        fontSize: '1rem',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                        border: '1px solid #e0e0e0'
+                    }}
+                    placeholder="Paste your YouTube URL here..." 
+                    value={url} 
+                    onChange={handleinput}
+                />
+                <button 
+                    style={{
+                        backgroundColor:'#98FF98',
+                        borderRadius: '0 15px 15px 0',
+                        padding: '0.8rem 1.5rem',
+                        border: 'none',
+                        transition: 'all 0.3s ease'
+                    }} 
+                    className="btn btn-lg" 
+                    type="button" 
+                    onClick={download}
+                >
+                    Download
+                </button>
+            </div>
         </div>
-</Layout> 
- <h2 className="mt-5" align="center">Hasil download ada di bawah</h2>
-<p align="center"> 👇👇👇</p>
- <div style={{minHeight:'50vh'}} ref={loadingRef} className="d-flex align-items-center justify-content-center mt-5">
-  
-{loading && <Loading/>}
+    </Layout>
 
-<h1>{message}</h1>
+    <h2 className="mt-5" align="center">Hasil download ada di bawah</h2>
+    <p align="center"> 👇👇👇</p>
+    <div style={{minHeight:'50vh'}} ref={loadingRef} className="d-flex align-items-center justify-content-center mt-5">
+    
+    {loading && <Loading/>}
 
-
-{!loading && link &&  (
-  <Card link={link} type='mp4'/>
-)}
-
-</div>
+    <h1>{message}</h1>
 
 
-<Tutorial title="Video"/>
+    {!loading && link &&  (
+    <Card link={link} type='mp4'/>
+    )}
+
+    </div>
 
 
+    <Tutorial title="Video"/>
 
-
-
-</div>
+    </div>
     )
 
     function Loading() {
