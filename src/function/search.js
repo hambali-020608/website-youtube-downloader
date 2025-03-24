@@ -5,7 +5,7 @@ const formatVideo = ['360', '480', '720', '1080', '1440'];
 
 async function ytdl(query) {
   
-  const video = await axios.get(`https://server-downloader.vercel.app/api/download?url=${query}`)
+  const video = await axios.get(`https://server-downloader.vercel.app/api/youtube/search?q=${query}`)
   const result = await video.data
 
   return result
