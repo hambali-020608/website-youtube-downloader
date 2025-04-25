@@ -16,7 +16,7 @@ export async function GET(request) {
 
     try {
         // Memanggil fungsi download
-        const video = await download(url);
+        const video = await download(url,format);
 
         // Validasi data yang diterima dari fungsi download
         if (video) {

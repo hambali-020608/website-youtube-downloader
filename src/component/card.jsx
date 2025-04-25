@@ -5,8 +5,7 @@ import { useState } from "react";
 
 export default function Card({ link, type }) {
   const router = useRouter();
-  const [downloadLink, setDownloadLink] = useState(type === 'mp4' ? link.video[0].downloadLink : link.audio[0].downloadLink);
-
+  
   async function handleDownload() {
     const response = await fetch(`/api/youtube?url=${link.url}&format=mp4`);
     const data = await response.json();
@@ -20,7 +19,7 @@ export default function Card({ link, type }) {
           <div className="col-md-4">
             <img
               className="img-fluid rounded-start"
-              src={link.image}
+              src={link.thumbnail}
               alt="..."
             />
           </div>
@@ -35,8 +34,8 @@ export default function Card({ link, type }) {
                 </li>
                 <li className="list-group-item">
                   <div className="row">
-                    <h4 className="col card-title border-end"> Duration</h4>
-                    <h5 className="col">{link.duration}</h5>
+                    <h4 className="col card-title border-end"> Quality</h4>
+                    <h5 className="col">{link.quality}</h5>
                   </div>
                 </li>
                 <li className="list-group-item">
@@ -49,7 +48,7 @@ export default function Card({ link, type }) {
                 </li>
                 <li className="list-group-item">
                   <div className="row">
-                  <select
+                  {/* <select
             className="w-full p-3 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50 backdrop-blur-sm hover:bg-gray-50 transition-colors duration-200"
             onChange={(e) => setDownloadLink(e.target.value)}
             defaultValue={type === "mp4" ? link.video[0].downloadLink : link.audio[0].downloadLink}
@@ -70,10 +69,10 @@ export default function Card({ link, type }) {
                 {v.fileType} • {v.fileSize}
               </option>
             ))}
-          </select>
+          </select> */}
 
                     <a
-                      href={downloadLink}
+                      href={link.download}
                       className=" col btn btn-primary h-75 "
                     >
                       <div className="d-flex justify-content-center align-items-center">
