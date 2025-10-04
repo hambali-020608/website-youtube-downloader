@@ -147,7 +147,7 @@ function Downloadmp4() {
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="me-2" style={{display: 'inline-block', verticalAlign: 'middle'}}>
                                                     <path d="M10 2V12M10 12L6 8M10 12L14 8M2 16H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                                 </svg>
-                                                Download
+                                                Search
                                             </>
                                         )}
                                     </button>

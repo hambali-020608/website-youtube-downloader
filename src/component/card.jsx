@@ -15,10 +15,10 @@ export default function Card({ link, quality }) {
       while (progressData.success < 1) {
         await new Promise((r) => setTimeout(r, 1000)); // delay 1 detik
         progressData = await fetch(progressUrl).then((res) => res.json());
-
+        console.log(progressData.progress)
         // Jika API punya field progress percent, kamu bisa ambil di sini
-        if (progressData.percent) {
-          setProgress(progressData.percent);
+        if (progressData.progress) {
+          setProgress(progressData.progress / 10);
         }
       }
 
