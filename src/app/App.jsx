@@ -18,10 +18,6 @@ function App() {
         <>
         
      <Navbar>
-        <a className={`nav-link btn ${tabs === 'ytmp4' ? 'active' : ''}`} aria-current="page"  href='#' onClick={()=>setTabs("ytmp4")} style={tabs==='ytmp4'?{cursor:'pointer',fontSize:'30px'}:{}}>Youtube-mp4</a>
-        {/* <a className={`nav-link btn ${tabs === 'ytmp3' ? 'active' : ''}`} aria-current="page" href='#'  onClick={()=>setTabs("ytmp3")} style={tabs==='ytmp3'?{cursor:'pointer',fontSize:'30px'}:{}}>Youtube-mp3</a> */}
-        {/* <a className={`nav-link btn ${tabs === 'ytsearch' ? 'active' : ''}`} aria-current="page" href='#'  onClick={()=>setTabs("ytsearch")} style={tabs==='ytsearch'?{cursor:'pointer',fontSize:'30px'}:{}}>Youtube-Search</a> */}
-     
         </Navbar> 
     <main>
        {tabs =='ytmp4' && <DownloadMp4/>}

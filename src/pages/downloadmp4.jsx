@@ -26,6 +26,7 @@ function Downloadmp4() {
 
     function handleInput(e) {
         setUrl(e.target.value);
+        if (error) setError(false);
     }
 
     function handleFormatChange(e) {
@@ -41,54 +42,74 @@ function Downloadmp4() {
 
         setError(false);
         setLoading(true);
+        setLink(false);
         loadingRef.current.scrollIntoView({ behavior: 'smooth' });
+        
         try {
-            const youtube = await fetch(`https://profesor-api.vercel.app/api/youtube/v4/download?url=${url}&format=${format}`);
+            const youtube = await fetch(`https://profesor-api.vercel.app/api/youtube/v1/detail?url=${url}&format=${format}`);
             const data = await youtube.json();
-            setLink(data.result);
+            setLink(data.data);
             setMessage('');
         } catch (error) {
             console.error(error);
             setLink(false);
-            setMessage('Failed to download. Please try again.');
+            setMessage('Failed to download. Please check your URL and try again.');
         } finally {
             setLoading(false);
+        }
+    }
+
+    function handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            download();
         }
     }
 
     return (
         <div className="position-relative" style={{ top: '3rem' }}>
             <Layout format="mp4">
-                <div className="container-fluid px-3 px-md-5">
+                <div className="container-fluid px-3 px-md-5 py-4">
                     <div className="row justify-content-center">
                         <div className="col-12 col-md-10 col-lg-8">
-                            <div className="d-flex flex-column flex-md-row gap-2">
-                                <input
-                                    type="text"
-                                    className={`form-control form-control-lg ${error ? 'is-invalid' : ''}`}
-                                    style={{
-                                        borderRadius: '15px',
-                                        padding: '0.8rem 1.2rem',
-                                        fontSize: '1rem',
-                                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                        border: '1px solid #e0e0e0',
-                                        flex: '1 1 auto'
-                                    }}
-                                    placeholder="Paste your YouTube URL here..."
-                                    value={url}
-                                    onChange={handleInput}
-                                />
+                            <div className="d-flex flex-column gap-3">
+                                {/* Input URL */}
+                                <div className="position-relative">
+                                 <input
+  type="text"
+  className={`form-control text-light form-control-lg ${error ? 'is-invalid' : ''}`}
+  style={{
+    borderRadius: '15px',
+    padding: '1rem 1.5rem',
+    fontSize: '1rem',
+    backgroundColor: '#1e1e1e', // warna gelap agar teks putih terlihat
+    color: 'white', // teks input jadi putih
+    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+    border: error ? '2px solid #ef4444' : '2px solid rgba(59, 130, 246, 0.3)',
+  }}
+  placeholder="🔗 Paste your YouTube URL here..."
+  value={url}
+  onChange={handleInput}
+  onKeyPress={handleKeyPress}
+/>
+
+                                    {error && (
+                                        <div className="invalid-feedback d-block mt-2 ms-2" style={{fontSize: '0.9rem'}}>
+                                            <strong>⚠️ {message}</strong>
+                                        </div>
+                                    )}
+                                </div>
                                 
-                                <div className="d-flex flex-row flex-md-column gap-2">
+                                {/* Format and Download Button */}
+                                <div className="d-flex flex-column flex-sm-row gap-3">
                                     <select
                                         className="form-select form-select-lg"
                                         style={{
-                                            border: '1px solid #e0e0e0',
-                                            padding: '0.8rem',
+                                            border: '2px solid rgba(59, 130, 246, 0.3)',
+                                            padding: '1rem 1.2rem',
                                             fontSize: '1rem',
-                                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                                            boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
                                             borderRadius: '15px',
-                                            minWidth: '120px'
+                                            flex: '1'
                                         }}
                                         value={format}
                                         onChange={handleFormatChange}
@@ -99,36 +120,75 @@ function Downloadmp4() {
                                             </option>
                                         ))}
                                     </select>
-                                    
+
                                     <button
                                         style={{
-                                            backgroundColor: '#98FF98',
                                             borderRadius: '15px',
-                                            padding: '0.8rem 1.5rem',
+                                            padding: '1rem 2.5rem',
                                             border: 'none',
-                                            transition: 'all 0.3s ease',
-                                            whiteSpace: 'nowrap'
+                                            fontSize: '1rem',
+                                            fontWeight: '700',
+                                            whiteSpace: 'nowrap',
+                                            minWidth: '200px',
+                                            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)'
                                         }}
                                         className="btn btn-lg"
                                         type="button"
                                         onClick={download}
+                                        disabled={loading}
                                     >
-                                        Download
+                                        {loading ? (
+                                            <>
+                                                <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                                                Processing...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="me-2" style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                                                    <path d="M10 2V12M10 12L6 8M10 12L14 8M2 16H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                </svg>
+                                                Download
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </div>
-                            {error && <div className="text-danger mt-2">{message}</div>}
                         </div>
                     </div>
                 </div>
             </Layout>
 
-            <h2 className="mt-5 text-center">Hasil download ada di bawah</h2>
-            <p className="text-center">👇👇👇</p>
-            <div style={{ minHeight: '50vh' }} ref={loadingRef} className="d-flex align-items-center justify-content-center mt-5">
+            {/* Result Section */}
+            <div className="container mt-5">
+                <div className="text-center mb-4">
+                    <h2 className="mb-2 text-white" style={{fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: '800'}}>
+                        Download Result
+                    </h2>
+                    <p className="text-secondary" style={{fontSize: '3rem', margin: '0', lineHeight: '1'}}>
+                        ⬇️
+                    </p>
+                </div>
+            </div>
+
+            <div 
+                style={{ minHeight: '50vh' }} 
+                ref={loadingRef} 
+                className="d-flex align-items-center justify-content-center mt-4 mb-5"
+            >
                 {loading && <Loading />}
-                {message && <h1 className="text-center">{message}</h1>}
-                {!loading && link && <Card link={link} type='mp4' />}
+                {message && !loading && !link && (
+                    <div className="text-center p-4">
+                        <div className="alert alert-danger d-inline-block" role="alert" style={{
+                            background: 'rgba(239, 68, 68, 0.1)',
+                            border: '2px solid rgba(239, 68, 68, 0.3)',
+                            borderRadius: '15px',
+                            padding: '1.5rem 2rem'
+                        }}>
+                            <h4 className="mb-0">❌ {message}</h4>
+                        </div>
+                    </div>
+                )}
+                {!loading && link && <Card link={link} quality={format} />}
             </div>
 
             <Tutorial title="Video" />
@@ -137,9 +197,14 @@ function Downloadmp4() {
 
     function Loading() {
         return (
-            <div className="d-flex align-items-center">
-                <strong role="status">Loading...</strong>
-                <div className="spinner-border ms-auto" aria-hidden="true"></div>
+            <div className="text-center p-5">
+                <div className="spinner-border mb-3" style={{width: '4rem', height: '4rem'}} role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+                <h3 className="mt-3" style={{color: 'var(--light-blue)', fontWeight: '600'}}>
+                    ⚡ Processing your request...
+                </h3>
+                <p className="text-secondary mt-2">Please wait while we fetch your video</p>
             </div>
         )
     }

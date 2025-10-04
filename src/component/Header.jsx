@@ -4,7 +4,7 @@ import Typed from 'typed.js'
 import { AOS } from 'aos'
 import 'aos/dist/aos.css'
 
-function HeaderFormat(props){
+function HeaderFormat(){
     const el = useRef(null);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function HeaderFormat(props){
     return(
         <header className="text-center header">
             <div className='header-content'>
-                <h1 className='main-title'>YouTube <span className="highlight">Downloader</span> {props.format}</h1>
+                <h1 className='highlight main-title'>YouTube <span className="highlight">Downloader</span></h1>
                 <div className="type-wrap">
                     <span ref={el}></span>
                 </div>
